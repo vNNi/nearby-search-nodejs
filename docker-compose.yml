@@ -1,0 +1,18 @@
+version: "3.2"
+services:
+  api:
+    build: .
+    networks:
+      - frontend
+      - backend
+    environment:
+      - MYSQl_HOST=search-nearby
+      - MYSQl_USER=admin
+      - MYSQL_PASS=admin123
+      - MYSQL_DB=search-nearby-db
+    ports:
+      - "3001:4008"
+    container_name: search-nearby-api
+networks:
+  frontend:
+  backend:
